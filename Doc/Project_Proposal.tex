@@ -1,0 +1,93 @@
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,shapes.misc}
+
+
+\title{
+    CSE342: SML - Music Genre Classification \\
+    \thanks{\textit{
+        CSE342: Statistical Machine Learning (Winter 2024),
+        A V Subramanyam, IIIT-Delhi.
+    }}
+}
+
+\author{
+    \IEEEauthorblockN{Mehul Agarwal} \vspace*{3.0pt}
+    \IEEEauthorblockA{
+        \textit{Computer Science \& Engineering Dept.} \\
+        \textit{IIIT-Delhi, India} \\
+        mehul22294@iiitd.ac.in
+    }
+    \and
+    \IEEEauthorblockN{Rahul Omalur Ramesh} \vspace*{3.0pt}
+    \IEEEauthorblockA{
+        \textit{Computer Science \& Engineering Dept.} \\
+        \textit{IIIT-Delhi, India} \\
+        rahul22392@iiitd.ac.in
+    }
+}
+
+\begin{document}
+    \maketitle
+
+    \begin{abstract}
+        This report presents the findings from a project aimed at developing a Music Genre Classifier utilizing various machine learning and deep learning techniques. The classifier's purpose is to streamline radio stations and genre-based playlists, analyze music for industry insights, organize content efficiently, aid producers and musicians in audio and music production, as well as assist in music licensing and copyrights. Models based on these algorithms are trained and compared for accuracy using the 'GTZAN genre collection' dataset, which comprises 10 genres with 100 samples each. Index Terms - K-Nearest Neighbors (KNN), Logistic Regression, Artificial Neural Network (ANN), Convolutional Neural Networks (CNN), Convolution-Recurrent Neural Network (CRNN).
+    \end{abstract}
+
+\section{Introduction}
+    In a world where musical content is being pushed out at an exponential rate, with a wide variety of genres, it is ideal to create a Music Genre Classifier for purposes such as:
+
+    \begin{enumerate}
+        \item Streamlining Radio Stations and Genre-based Playlists
+        \item Music Analysis and Industry Insights
+        \item Efficient Content Organization
+        \item Aiding producers and musicians in Audio and Music Production
+        \item Music Licensing and Copyrights
+    \end{enumerate}
+    
+    Music genre classification is the task of automatically assigning a label to a piece of music based on its genre, such as rock, jazz, or classical. This task is challenging because genres are often subjective, ambiguous, and overlapping, and there is no clear definition of what constitutes a genre. Moreover, different music genres may share similar acoustic features, such as tempo, rhythm, or instrumentation, making it hard to distinguish them based on audio signals alone.
+
+    
+
+    \section{Overview}
+        To address this problem, we propose to use machine learning techniques to learn from a large dataset of labeled music tracks, and to extract relevant features that can capture the essence of each genre. We will use the GTZAN Music Classification Genre Dataset.In this course project, we aim to compare the performance of four machine learning and deep learning algorithms on this task:
+    \begin{enumerate}
+        \item Logistic Regression
+        \item Convolutional Neural Network (CNN)
+        \item K-Nearest Neighbors (KNN)
+        \item Convolutional Recurrent Neural Network (CRNN)
+    \end{enumerate}
+
+    We will also discuss the advantages and disadvantages of each algorithm and suggest possible improvements for future work.
+
+
+    \section{Dataset}
+        The GTZAN Music Classification Genre Dataset is a collection of 1000 audio tracks, each 30 seconds long, that belong to 10 different music genres. The genres are blues, classical, country, disco, hip-hop, jazz, metal, pop, reggae, and rock. Each genre has 100 tracks, and the tracks are in .wav format with 22050Hz sampling rate and 16-bit resolution.
+
+    \section*{Evaluation Metrics} 
+        To measure the performance of our music genre classification models, we will use the following metrics:
+        
+        \textbf{Accuracy}: The proportion of correctly classified tracks out of the total number of tracks. Accuracy is a simple and intuitive metric, but it can be misleading if the dataset is imbalanced or if some genres are more important than others.
+        \textbf{Precision}: The proportion of correctly classified tracks out of the total number of tracks predicted to belong to a certain genre. Precision reflects how reliable the model is when it assigns a label to a track, and how well it avoids false positives.
+        \newline
+        \textbf{Recall}: The proportion of correctly classified tracks out of the total number of tracks that actually belong to a certain genre. Recall reflects how well the model can capture all the relevant tracks for a genre, and how well it avoids false negatives.
+        \newline
+        \textbf{F1-score}: The harmonic mean of precision and recall. F1-score balances both precision and recall, and gives a higher score to models that have both high precision and high recall.
+        \newline \\
+        We will compute these metrics for each genre separately, and report the average scores across all genres. We will compare the results of different feature extraction and classification methods, and analyze their strengths and weaknesses. We will also discuss the limitations of our models and the challenges of music genre classification, and suggest possible directions for future work.
+
+    
+    \begin{thebibliography}{99}
+        \bibitem{b1} scikit-learn. \textit{Scikit-learn Documentation}. https://scikit-learn.org/stable/.
+        
+        \bibitem{b2} GTZAN Music Classification Genre. \textit{Kaggle Dataset}.{https://www.kaggle.com/code/dapy15/music-genre-classification/input}.
+    \end{thebibliography}
+\end{document}
