@@ -43,6 +43,6 @@ def load_data(dataset_path, save_path, n_mels=128, hop_length=512, test_size=0.1
     return data, labels
 
 # Example usage
-dataset_path = '../Data/genre_original'
-save_path = '../Data/image_original'
+dataset_path = 'Data/genre_original'
+save_path = 'Data/image_original'
 data, labels = load_data(dataset_path, save_path)

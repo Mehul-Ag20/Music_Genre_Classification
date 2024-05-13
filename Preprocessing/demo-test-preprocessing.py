@@ -32,17 +32,12 @@ def extract_features(file_path):
 
     return features
 
-# Path to the directory containing the WAV files
-directory = '../Data/wav_data'
 
-# List to store features and labels
-data = []
-c=0
-# Iterate over each WAV file in the directory
 
-# Write the extracted features and labels to a CSV file
-
-with open('../Data/features.csv', 'w', newline='') as file:
+directory = 'Data/Demo'
+for filename in os.listdir(directory):
+            print(filename)
+with open('ML/demo-test-wav.csv', 'w', newline='') as file:
     writer = csv.writer(file)
     writer.writerow(["filename", "length", "chroma_stft_mean", "chroma_stft_var", "rms_mean", "rms_var",
                      "spectral_centroid_mean", "spectral_centroid_var", "spectral_bandwidth_mean",
@@ -55,13 +50,15 @@ with open('../Data/features.csv', 'w', newline='') as file:
                      "mfcc14_mean", "mfcc14_var", "mfcc15_mean", "mfcc15_var", "mfcc16_mean", "mfcc16_var",
                      "mfcc17_mean", "mfcc17_var", "mfcc18_mean", "mfcc18_var", "mfcc19_mean", "mfcc19_var",
                      "mfcc20_mean", "mfcc20_var", "label"])
-    
+   
     for filename in os.listdir(directory):
-        if filename.endswith(".wav"):
+        if filename.endswith("jazz demo.wav"):
             file_path = os.path.join(directory, filename)
             features = extract_features(file_path)
+            if(len(features)==54):
+                features.extend([features[-2],features[-1],features[-2],features[-1]])
             print(len(features))
-            label = filename.split('.')[0]  # Specify your label here
+            label = filename.split(' ')[0]  # Specify your label here
             data = ([filename] + features + [label])
             print(data)
             writer.writerow(data)
